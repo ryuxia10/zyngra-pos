@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light; background: #f6f7fb; }
+html,body,#root { height: 100%; }
+* { outline: none; }
+
+input, select, textarea, button { font: inherit; }
+input, select, textarea {
+  background: #ffffff;
+  color: #111827;
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: .75rem;
+  padding: .5rem .75rem;
+}
+button { border-radius: .75rem; }
+
+.card {
+  background: rgba(255,255,255,.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 1rem;
+}
+
+@media print {
+  @page { size: 80mm auto; margin: 0; }
+  html, body { background: #fff !important; margin: 0 !important; padding: 0 !important; }
+  body * { visibility: hidden !important; }
+  #receipt-print, #receipt-print * { visibility: visible !important; }
+  #receipt-print { position: absolute; top: 0; left: 0; width: 80mm; }
+}
+
+.print-only { display: none; }
+@media print { .print-only { display: block; } }
+
+@keyframes toast-in {
+  0% { transform: translateY(-12px) scale(.96); opacity: 0; filter: blur(6px); }
+  60% { transform: translateY(4px) scale(1.02); opacity: 1; filter: blur(0); }
+  100% { transform: translateY(0) scale(1); }
+}
+@keyframes toast-out {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-10px) scale(.96); opacity: 0; }
+}
+.toast-enter { animation: toast-in 420ms cubic-bezier(.2,.8,.2,1); }
+.toast-leave { animation: toast-out 280ms ease forwards; }
+
+.will-change-transform { will-change: transform; }
