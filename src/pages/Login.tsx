@@ -89,7 +89,7 @@ export default function Login() {
                 onChange={(e) => setEmail(e.target.value)}
               />
               <input
-                placeholder="Password"
+                placeholder="Password (8 karakter atau lebih)"
                 type="password"
                 value={pass}
                 onChange={(e) => setPass(e.target.value)}
