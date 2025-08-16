@@ -20,6 +20,7 @@ import Inventory from "./pages/Inventory";
 import Audit from "./pages/Audit";
 import { ShortcutProvider } from "./ui/ShortcutProvider";
 import StockAdjustments from "./pages/StockAdjustments";
+import TrialPopup from "./components/TrialPopup";
 
 function Protected({ children }: { children: JSX.Element }) {
   const { user, loading, org } = useAuth();
@@ -46,6 +47,7 @@ export default function App() {
     <AuthProvider>
       <ToastContainer />
       <ClockWidget />
+      <TrialPopup />
       <ShortcutProvider>
         <Routes>
           <Route path="/login" element={<Login />} />
